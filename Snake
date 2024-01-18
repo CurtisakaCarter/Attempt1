@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake Game</title>
+  <style>
+    canvas {
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="snakeCanvas" width="400" height="400"></canvas>
+  <script>
+    const canvas = document.getElementById("snakeCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let snake = [{ x: 10, y: 10 }];
+    let direction = "right";
+
+    function drawSnake() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      snake.forEach(segment => {
+        ctx.fillStyle = "#00F";
+        ctx.fillRect(segment.x * 20, segment.y * 20, 20, 20);
+      });
+    }
+
+    function update() {
+      // Update snake logic here
+    }
+
+    function gameLoop() {
+      update();
+      drawSnake();
+      requestAnimationFrame(gameLoop);
+    }
+
+    document.addEventListener("keydown", (event) => {
+      // Handle arrow key inputs to change direction
+    });
+
+    gameLoop();
+  </script>
+</body>
+</html>
